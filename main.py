@@ -22,8 +22,11 @@ def jeu():
     print('Bonne chance',nom,'.')
 
     while True:
-        time.sleep(1)
-        force_adversaire = random.randint(1,5)
+        if numero_combat == 3,6,:
+            force_adversaire = random.randint(6, 11)
+            time.sleep(1)
+
+        force_adversaire = random.randint(1,11)
         print('Vous tombez maintenant face à face avec un adversaire de difficulté',force_adversaire,'.')
         time.sleep(2)
         print('')
@@ -46,9 +49,16 @@ def jeu():
             print('Combat',numero_combat,':',nb_victoire,'victoires vs', nb_defaite,'défaites')
             print('')
 
-            score_dé = random.randint(1,6)
+            premier_dé = random.randint(1, 6)
+            second_dé = random.randint(1, 6)
+            score_dé = premier_dé + second_dé
             time.sleep(3)
-            print('Lancer du dé:',score_dé,'')
+            print('Lancer du premier dé:', premier_dé,'')
+            time.sleep(1)
+            print('Lancer du second dé:', second_dé, '')
+            time.sleep(1)
+            print('Total:', score_dé,'')
+            time.sleep(1)
 
             if score_dé > force_adversaire:
                 print('Victoire!')
@@ -66,8 +76,10 @@ def jeu():
                 True
 
             elif score_dé <= force_adversaire:
+                time.sleep(2)
                 print('Défaite.')
                 print('-',force_adversaire,'points de vie')
+                print('')
                 niveau_vie = niveau_vie - force_adversaire
                 if niveau_vie <= 0:
                     print('Niveau de vie:',niveau_vie,'')
@@ -106,6 +118,12 @@ def jeu():
             time.sleep(1)
             print('')
             print('Merci et au revoir.')
+            break
+
+        else:
+            print('')
+            print('Erreur.'
+                  '\nCeci n est pas une option.')
             break
 
 jeu()
