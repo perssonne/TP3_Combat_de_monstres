@@ -16,7 +16,6 @@ def jeu():
     nb_victoire = 0
     nb_defaite = 0
     nb_victoire_consec = 0
-
     print('Bienvenue dans ce jeu de combat de monstres.')
     nom=str(input('Quel sera le nom de votre avatar?'))
     print('Bonne chance',nom,'.')
