@@ -2,11 +2,14 @@
 #Créé par Enzo Sanchez Valero
 #TP3(Combat de monstres)
 
+# Importation des modules
 import random
 import time
 
+# Définition fonction
 def jeu():
 
+    # Réinitialisation des variables
     niveau_vie = 20
     victoires = 0
     defaite = 0
@@ -16,29 +19,39 @@ def jeu():
     nb_victoire = 0
     nb_defaite = 0
     nb_victoire_consec = 0
+
     print('Bienvenue dans ce jeu de combat de monstres.')
+
+    # Choix d'un pseudo
     nom=str(input('Quel sera le nom de votre avatar?'))
     print('Bonne chance',nom,'.')
 
+    # Boucle while
     while True:
-        if numero_combat == 3,6,:
+        # Boss
+        if nb_victoire % 3 == 0:
             force_adversaire = random.randint(6, 11)
             time.sleep(1)
+        # Adversaire normal
+        else:
+            force_adversaire = random.randint(1, 11)
 
-        force_adversaire = random.randint(1,11)
         print('Vous tombez maintenant face à face avec un adversaire de difficulté',force_adversaire,'.')
         time.sleep(2)
+        # Présentation des options
         print('')
         print('Voici vos options:')
         print(' 1 - Combattre cet adversaire '
               '\n 2 - Contourner cet adversaire et aller ouvrir une autre porte'
               '\n 3 - Afficher les règles du jeu '
               '\n 4 - Quitter la partie')
-
         time.sleep(2)
+        # Choix d'une action
         choix=int(input('Que voulez vous faire?'))
 
+        # Combat
         if choix == 1:
+            # Informations sur l'état de l'avatar
             print('')
             print('',nom,'')
             time.sleep(2)
@@ -48,6 +61,7 @@ def jeu():
             print('Combat',numero_combat,':',nb_victoire,'victoires vs', nb_defaite,'défaites')
             print('')
 
+            # Dés d'attaque
             premier_dé = random.randint(1, 6)
             second_dé = random.randint(1, 6)
             score_dé = premier_dé + second_dé
@@ -59,33 +73,42 @@ def jeu():
             print('Total:', score_dé,'')
             time.sleep(1)
 
+            # En cas de victoire
             if score_dé > force_adversaire:
                 print('Victoire!')
+                # Mise à jour de l'état de l'avatar
                 niveau_vie = niveau_vie + force_adversaire
                 nb_victoire = nb_victoire + 1
                 numero_combat = numero_combat + 1
                 numero_adversaire = numero_adversaire + 1
                 nb_victoire_consec = nb_victoire_consec + 1
 
+                # Informations sur la progression de l'avatar
                 time.sleep(2)
                 print('')
                 print('',nom,' \n Niveau de vie:',niveau_vie,' \n Nombre de victoires consécutives:',nb_victoire_consec,'')
                 print('')
                 time.sleep(2)
-                True
 
+            # En cas de défaite
             elif score_dé <= force_adversaire:
                 time.sleep(2)
                 print('Défaite.')
                 print('-',force_adversaire,'points de vie')
                 print('')
+                # Mise à jour de niveau de vie de l'avatar
                 niveau_vie = niveau_vie - force_adversaire
+                # En cas de Game Over
                 if niveau_vie <= 0:
                     print('Niveau de vie:',niveau_vie,'')
                     print('La partie est terminée.')
                     print('Vous avez vaincu',nb_victoire,'monstre(s).')
+
+                    # Sortie de la boucle
                     break
+                # Si niveau de vie > 0 le jeu continue
                 else:
+                    # Mise à jour de l'état de l'avatar
                     combat_statut = defaite
                     nb_defaite = nb_defaite + 1
                     numero_combat = numero_combat + 1
