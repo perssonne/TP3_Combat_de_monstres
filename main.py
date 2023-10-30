@@ -117,13 +117,16 @@ def jeu():
                     nb_victoire_consecutive = 0
                     True
 
+        # Si le monstre est trop puissant, l'utilisateur décide d'éviter le combat
         elif choix == 2:
             print('')
             print('Vous décidez de contourner ce monstre. \n -1 point de vie')
             print('')
+            # Pénalité
             niveau_vie = niveau_vie - 1
             True
 
+        # Affichage des règles du jeu
         elif choix == 3:
             print(''
                   '\n Règles du jeu:'
@@ -134,15 +137,16 @@ def jeu():
                   '\n L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie'
                   '\n ')
             time.sleep(15)
-
             True
 
+        # Si l'usager décide de quitter le jeu
         elif choix == 4:
             time.sleep(1)
             print('')
             print('Merci et au revoir.')
             break
 
+        # Si l'usager ne respecte pas les options, le jeu s'arrête
         else:
             print('')
             print('Erreur.'
@@ -150,6 +154,7 @@ def jeu():
             break
 
 jeu()
+
 
 # Je pense que pour qu'il y ait deux monstres derrière chaque porte, on pourrait par exemple créer une deuxième
 # variable force_adversaire. L'utilisateur pourrait alors soit les combattre les deux en même temps (il faudrait
